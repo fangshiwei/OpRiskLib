@@ -1,0 +1,112 @@
+doctype html
+html
+    head
+        title= title
+        meta(charset="utf-8")
+        script(src="/javascripts/jquery.min.js")
+        link(rel="stylesheet", href="/stylesheets/bootstrap.min.css")
+        link(rel='stylesheet', href='/stylesheets/style.css')
+        link(rel="stylesheet", href="/stylesheets/base.css")
+        script(src="/javascripts/bootstrap.min.js")
+    body
+    .navbar.navbar-default.navbar-fixed-top(role="navigation")
+        .container-fluid
+            .row
+                .navbar-collapse
+                    ul.navbar-nav.navbar-collapse
+                        li
+                            a.btn.btn-info(href="/") 主页
+                    if(user)
+                        ul.nav.navbar-nav.navbar-right
+                            li
+                                a.btn.btn-default(href="/admin/admin") 管理
+                            li
+                                a.btn.btn-default(href="/list") 列表页
+    .container
+        .row
+            h4 .
+    block content
+    if user
+        .navbar.navbar-default.navbar-fixed-bottom(role="navigation")
+            .container-fluid
+                .row
+                    .navbar-collapse
+                        ul.navbar-nav.nav.navbar-right
+                            li
+                                a 你好#{user.name}
+                            li
+                                a.btn.btn-default(type="button", href="/signout") signout
+    if !user
+        .navbar.navbar-default.navbar-fixed-bottom(role="navigation")
+            .row
+                .container-fluid
+                    .navbar-collapse
+                        ul.navbar-nav.nav.navbar-right
+                            li
+                                a.btn.btn-default(type="button",data-toggle="modal",data-target="#signin") signin
+                            li
+                                a.btn.btn-default(type="button",data-toggle="modal",data-target="#signup") signup
+
+        .modal.fade#signin(role="dialog")
+            .modal-dialog
+                .modal-content
+                    .modal-header
+                        button.close(type="button",aria-label="close",data-dismiss="modal")
+                            span(aria-hidden="true") close
+                        h4 登陆
+                    .modal-body
+                        .container
+                        .row
+                            .col-xs-6
+                                .panel.panel-default
+                                    .panel-heading
+                                        .panel-title
+                                            登陆
+                                    .panel-body
+                                        form.form-horizontal(role="form",action="/signin",method="post")
+                                            .form-group
+                                                label.col-xs-4 用户名
+                                                .col-xs-8
+                                                    input.form-control#name(name="name")
+                                            .form-group
+                                                label.col-xs-4 密码
+                                                .col-xs-8
+                                                    input.form-control#password(name="password")
+                                            .form-group
+                                                label.col-xs-offset-3
+                                                input.btn.btn-primary(type="submit",value="提交")
+
+        .modal.fade#signup(role="dialog")
+            .modal-dialog
+                .modal-content
+                    .modal-header
+                        button.close(type="button",aria-label="close",data-dismiss="modal")
+                            span(aria-hidden="true") close
+                        h4 注册
+                    .modal-body
+                        .container
+                            .row
+                                .col-xs-6
+                                    .panel.panel-default
+                                        .panel-heading
+                                            .panel-title
+                                                注册
+                                        .panel-body
+                                            form.form-horizontal(role="form",action="/signup",method="post")
+                                                .form-group
+                                                    label.col-xs-4 用户名
+                                                    .col-xs-8
+                                                        input.form-control#name(name="name")
+                                                .form-group
+                                                    label.col-xs-4 密码
+                                                    .col-xs-8
+                                                        input.form-control#password(name="password")
+                                                .form-group
+                                                    label.col-xs-4 再输入一次密码
+                                                    .col-xs-8
+                                                        input.form-control.confirm-password
+                                                .form-group
+                                                    label.col-xs-offset-3
+                                                        input.btn.btn-primary(type="submit",value="提交")
+
+

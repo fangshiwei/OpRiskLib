@@ -1,0 +1,28 @@
+extends ./layout
+block content
+    script("src"="./javascripts/signup.js")
+    .container
+        .row
+            .col-xs-6
+                .panel.panel-default
+                    .panel-heading
+                        .panel-title
+                            注册
+                    .panel-body
+                        form.form-horizontal(role="form",action="/signup",method="post")
+                            .form-group
+                                label.col-xs-4 用户名
+                                .col-xs-8
+                                    input.form-control#name(name="name")
+                            .form-group
+                                label.col-xs-4 密码
+                                .col-xs-8
+                                    input.form-control#password(name="password")
+                            .form-group
+                                label.col-xs-4 再输入一次密码
+                                .col-xs-8
+                                    input.form-control.confirm-password
+
+                            .form-group
+                                .col-xs-offset-3
+                                    input.btn.btn-primary(type="submit",value="提交")

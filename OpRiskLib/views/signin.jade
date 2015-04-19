@@ -1,0 +1,24 @@
+extends ./layout
+block content
+    .container
+        .row
+            .col-xs-6
+                .panel.panel-default
+                    .panel-heading
+                        .panel-title
+                            登陆
+                    .panel-body
+                        form.form-horizontal(role="form",action="/signin",method="post")
+                            .form-group
+                                label.col-xs-4 用户名
+                                .col-xs-8
+                                    input.form-control#name(name="name")
+
+                            .form-group
+                                label.col-xs-4 密码
+                                .col-xs-8
+                                    input.form-control#password(name="password")
+
+                            .form-group
+                                .col-xs-offset-3
+                                    input.btn.btn-primary(type="submit",value="提交")

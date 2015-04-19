@@ -1,0 +1,34 @@
+extends ./layout
+block content
+    .container
+        .row
+            form.form-horizontal(method="post",action="/admin/movie/new")
+                input(type="hidden",name="movie[id]",value="#{id}")
+                .form-group
+                    label(for="#input-flash") 电影地址
+                    input#input-flash.form-control(type="text",name="movie[flash]",value="#{flash}")
+                .form-group
+                    label(for="#input-poster") 电影海报
+                    input#input-poster.form-control(type="text",name="movie[poster]",value="#{poster}")
+                .form-group
+                    label(for="#select-type") 电影类型
+                        select#select-type.form-control(name="movie[type]")
+                            each type in types
+                                option #{type}
+                .form-group
+                    label(for="#input-title") 电影名字
+                        input#inputTitle.form-control(type="text",name="movie[title]",value="#{title}")
+                .form-group
+                    label(for="#input-doctor") 电影导演
+                        input#input-doctor.form-control(type="text",name="movie[doctor]",value="#{doctor}")
+                .form-group
+                    label(for="#input-country") 电影国家
+                        input#input-conuntry.form-control(type="text",name="movie[country]",value="#{country}")
+                .form-group
+                    label(for="#input-language") 电影语言
+                        input#input-language.form-control(type="text",name="movie[language]",value="#{language}")
+                .form-group
+                    label(for="#input-brief") 电影简介
+                        input#input-brief.form-control(type="text",name="movie[brief]",value="#{brief}")
+                .form-group
+                    input(class="btn btn-default",type="submit",value="提交")

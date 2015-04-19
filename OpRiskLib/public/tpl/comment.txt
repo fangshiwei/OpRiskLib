@@ -1,0 +1,24 @@
+<%for(var i=0;i<data.length;i++) {%>
+	<%var item = data[i]%>
+	<% console.log(item) %>
+    <li class="media">
+        <div class="media-left">
+			<a data-discuss="<%=item.from._id%>" href="#comment" class="discuss glyphicon glyphicon-cloud" "aria-hidden="true">
+			</a>
+    	</div>
+    	<div class="media-body">
+    		<div class="media-heading">
+				<span class="glyphicon-class glyphicon">
+					<%= item.from.name %>
+					<%if(item.to){%>
+						回复
+						<%= item.to.name %>
+					<%}%>
+				</span>
+			</div>
+    		<p> 
+    			<%= item.content %>
+    		</p>
+    	</div>
+    </li>
+<%}%>
