@@ -38,4 +38,4 @@ oplibUser.pre("save",function(next) {
 });
 //为mongodb定义了这个数据模型, 这个数据模型和当前的数据库绑定了;
 var OplibUser = mongoose.model("OPLIB_USER", oplibUser);
-module.exports = OpLibUser;
+module.exports = OplibUser;
