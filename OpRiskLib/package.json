@@ -1,0 +1,10 @@
+{
+  "name": "OpRiskLib",
+  "version": "0.0.0",
+  "description": "OpRiskLib",
+  "main": "app.js",
+  "author": {
+    "name": "Shiwei",
+    "email": ""
+  }
+}
